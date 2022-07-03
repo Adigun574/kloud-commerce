@@ -377,4 +377,5 @@ export default {
       padding:10px;
       font-size: 12px;
   }
+  
 </style>

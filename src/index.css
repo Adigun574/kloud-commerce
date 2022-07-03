@@ -5,3 +5,11 @@
 .toast:not(.show) {
     display: block;
 }
+
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #f2f8ff !important;
+    color:#007bff !important;
+    border-color: #dee2e6 !important;
+}
