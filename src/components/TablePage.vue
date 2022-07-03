@@ -13,7 +13,7 @@
           mb-4
         "
       >
-        <p style="color: #616469"><b>View All Users</b></p>
+        <p class="grey-text"><b>View All Users</b></p>
         <button
           data-toggle="modal" data-target="#exampleModal"
           class="
@@ -42,11 +42,42 @@
           pl-6
           pr-2
           overflow-x-auto
+          sm:flex
+          hidden
         "
       >
         <p class="bg-white p-2 rounded text-xs cursor-pointer"><i class="fa fa-search"></i></p>
-        <div style="color: #616469">
+        <div class="grey-text">
           <div class="mt-4 flex justify-end items-center">
+            <div class="mr-3">
+              <p><b>1</b> - <b>{{user.length}}</b> of <b>{{users.length}}</b> Entriesss</p>
+            </div>
+            <b-pagination
+              v-model="currentPage"
+              :total-rows="rows"
+              :per-page="perPage"
+              first-number
+              last-number
+            ></b-pagination>
+            <div class="bg-white flex items-center ml-3 px-2 mb-3 rounded">
+              <p class="relative rows-p"><b>Rows:</b></p>
+              <select>
+                <option>10</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="
+          bg-[#f1f2f5]
+          mb-2
+          p-4
+          sm:hidden
+        "
+      >
+        <div class="flex justify-between items-center"> 
             <div class="mr-3">
               <p><b>1</b> - <b>{{user.length}}</b> of <b>{{users.length}}</b> Entries</p>
             </div>
@@ -57,17 +88,23 @@
               first-number
               last-number
             ></b-pagination>
+        </div>
+
+        <div class="flex justify-between"> 
+            <input class="form-control" type="search"/>
             <div class="bg-white flex items-center ml-3 px-2 mb-3 rounded">
-              <p style="position:relative; top:7px"><b>Rows:</b></p>
+              <p class="relative rows-p"><b>Rows:</b></p>
               <select>
                 <option>10</option>
               </select>
             </div>
-          </div>
         </div>
+
       </div>
 
-      <div style="color: #616469" class="overflow-x-auto">
+      <!---->
+
+      <div class="overflow-x-auto grey-text">
         <table
           class="w-full border-1 border-solid border-[#e1e5ee] overflow-x-auto"
         >
@@ -109,7 +146,7 @@
       </div>
 
       <div class="mt-4 flex justify-end">
-        <div style="color: #616469">
+        <div class="grey-text">
           <div class="mt-4 flex justify-end items-center">
             <div class="mr-3">
               <p><b>1</b> - <b>{{user.length}}</b> of <b>{{users.length}}</b> Entries</p>
@@ -122,7 +159,7 @@
               last-number
             ></b-pagination>
             <div class="bg-white flex items-center ml-3 px-2 mb-3 rounded border-1 border-inherit border-solid">
-              <p style="position:relative; top:7px"><b>Rows:</b></p>
+              <p class="relative rows-p"><b>Rows:</b></p>
               <select>
                 <option>10</option>
               </select>
@@ -185,9 +222,10 @@
 
                     <!---->
                 </div>
-                <div class="modal-footer">
+                
+                <div class="flex justify-end pb-4 pr-4">
                     <template v-if="!loading">
-                        <button type="button" class="bg-rose-500 hover:bg-rose-700 text-white font-bold py-2 px-4 rounded" data-dismiss="modal">Close</button>
+                        <button type="button" class="bg-rose-500 hover:bg-rose-700 text-white font-bold py-2 px-4 rounded mr-2" data-dismiss="modal">Close</button>
                         <button v-if="userAction === 'Create'" @click="saveUser()" type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Save</button>
                         <button v-if="userAction === 'Edit'" @click="editUser()" type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Update</button>
                     </template>
@@ -240,7 +278,6 @@ export default {
     this.getUsers()
   },
   mounted(){
-    // this.getUsers()
   },
   methods: {
     getUsers(){
@@ -267,11 +304,6 @@ export default {
           //call delete method
           axios.delete(`${this.url}/${1}`)
             .then(response => {
-                // Swal.fire(
-                // 'Deleted!',
-                // 'User has been deleted.',
-                // 'success'
-                // )
                 this.makeToast('success', 'Success', 'User has been deleted')
             })
             .catch(error => {
@@ -322,6 +354,12 @@ export default {
         }
     },
     setUserAction(action){
+        this.user = {
+            firstName:'',
+            lastName:'',
+            email:'',
+            phone:''
+        }
         this.userAction = action
     },
     openEditModal(user){
@@ -335,6 +373,7 @@ export default {
     },
     editUser(user){
         if(this.user.firstName && this.user.lastName && this.user.email && this.user.phone){
+            this.loading = true
             axios.put(`${this.url}/${this.userId}`, this.user)
             .then(response => {
                 console.log(response)
@@ -376,6 +415,12 @@ export default {
       border-radius: 50%;
       padding:10px;
       font-size: 12px;
+  }
+  .grey-text{
+    color: #616469
+  }
+  .rows-p{
+      top:7px;
   }
   
 </style>
