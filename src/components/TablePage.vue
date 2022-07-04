@@ -59,7 +59,7 @@
               first-number
               last-number
             ></b-pagination>
-            <div class="bg-white flex items-center ml-3 px-2 mb-3 rounded">
+            <div class="bg-white flex items-center ml-3 px-2 mb-3 rounded" style="height:35px">
               <p class="relative rows-p"><b>Rows:</b></p>
               <select>
                 <option>10</option>
@@ -92,7 +92,7 @@
 
         <div class="flex justify-between"> 
             <input class="form-control" type="search"/>
-            <div class="bg-white flex items-center ml-3 px-2 mb-3 rounded">
+            <div class="bg-white flex items-center ml-3 px-2 mb-3 rounded" style="height:35px">
               <p class="relative rows-p"><b>Rows:</b></p>
               <select>
                 <option>10</option>
