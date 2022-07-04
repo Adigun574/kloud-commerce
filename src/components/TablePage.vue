@@ -59,13 +59,7 @@
               first-number
               last-number
             ></b-pagination>
-            <div class="bg-white flex items-center ml-3 px-2 mb-3 rounded" style="height:35px;display: flex; align-items:center">
-              <!-- <div class="pt-3">
-                  <p><b>Rows:</b></p>
-              </div> -->
-               <!-- <div style="display:flex; align-items:center">
-                  <p><b>Rows:</b></p>
-              </div> -->
+            <div class="bg-white flex items-center ml-3 px-2 mb-3 rounded relative" style="height:35px; top:10px">
               <select>
                 <option>10</option>
               </select>
@@ -97,10 +91,7 @@
 
         <div class="flex justify-between"> 
             <input class="form-control" type="search"/>
-            <div class="bg-white flex items-center ml-3 px-2 mb-3 rounded" style="height:35px;display: flex; align-items:center">
-              <div class="pt-3">
-                  <p><b>Rows:</b></p>
-              </div>
+            <div class="bg-white flex items-center ml-3 px-2 mb-3 rounded relative" style="height:35px; top:10px">
               <select>
                 <option>10</option>
               </select>
@@ -165,8 +156,7 @@
               first-number
               last-number
             ></b-pagination>
-            <div class="bg-white flex items-center ml-3 px-2 mb-3 rounded border-1 border-inherit border-solid">
-              <p class="relative rows-p"><b>Rows:</b></p>
+            <div class="bg-white flex items-center ml-3 px-2 mb-3 rounded border-1 border-inherit border-solid relative" style="height:35px; top:10px">
               <select>
                 <option>10</option>
               </select>
