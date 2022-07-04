@@ -91,7 +91,7 @@
 
         <div class="flex justify-between"> 
             <input class="form-control" type="search"/>
-            <div class="bg-white flex items-center ml-3 px-2 mb-3 rounded relative" style="height:35px; top:10px">
+            <div class="bg-white flex items-center ml-3 px-2 mb-3 rounded relative" style="height:35px;">
               <select>
                 <option>10</option>
               </select>
