@@ -60,9 +60,12 @@
               last-number
             ></b-pagination>
             <div class="bg-white flex items-center ml-3 px-2 mb-3 rounded" style="height:35px;display: flex; align-items:center">
-              <div class="pt-3">
+              <!-- <div class="pt-3">
                   <p><b>Rows:</b></p>
-              </div>
+              </div> -->
+               <!-- <div style="display:flex; align-items:center">
+                  <p><b>Rows:</b></p>
+              </div> -->
               <select>
                 <option>10</option>
               </select>
