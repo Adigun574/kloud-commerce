@@ -77,7 +77,7 @@
           sm:hidden
         "
       >
-        <div class="flex justify-between items-center"> 
+        <div class="flex justify-between items-center mb-2"> 
             <div class="mr-3">
               <p><b>1</b> - <b>{{user.length}}</b> of <b>{{users.length}}</b> Entries</p>
             </div>
